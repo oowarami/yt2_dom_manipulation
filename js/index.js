@@ -36,22 +36,62 @@ document.getElementById('roleSearch').addEventListener('input', function() {
 	});
 });
 
-// ? show and hide sections on click of button
+// ? Show and hide sidebar sections on click of button
 
-// Show Employee
+document.querySelectorAll('.toggle-button').forEach( button =>{
+	const defaultButton = document.querySelector('.toggle-button.active');
+	const defaultContent = document.getElementById(defaultButton.getAttribute('data-target'));
 
-document.getElementById('employeeButton').addEventListener('click', function() {
-	document.getElementById('main-employee').classList.remove('hide');
-	document.getElementById('main-role').classList.add('hide');
+	// Show the default content on page load
+	defaultContent.classList.add('active');
+	defaultContent.style.display = 'block';
+
+	button.addEventListener('click', function(){
+		// Remove active class from all buttons and hide all content
+		document.querySelectorAll('.toggle-button').forEach(tb => tb.classList.remove('active'));
+		document.querySelectorAll('.toggle-section').forEach(ts => {
+			ts.classList.remove('active');
+			ts.style.display = 'none';
+		});
+	
+		// Add active class to the clicked button and show content
+		this.classList.add('active');
+		const sectionId = this.getAttribute('data-target');
+		document.getElementById(sectionId).classList.add('active');
+		const section = document.getElementById(sectionId);
+			section.classList.add('active');
+			section.style.display = 'block';
+	});
 });
 
-// Show Roles
+// ? Show and hide tabs
 
-document.getElementById('RolesButton').addEventListener('click', function() {
-	document.getElementById('main-role').classList.remove('hide');
-	document.getElementById('main-employee').classList.add('hide');
+document.querySelectorAll('.tab').forEach(tab => {
+	const defaultTab = document.querySelector('.tab.active');
+	const defaultContent = document.getElementById(defaultTab.getAttribute('data-target'));
+
+	// Show the default content on page load
+	defaultContent.classList.add('active');
+	defaultContent.style.display = 'block';
+
+	tab.addEventListener('click', function() {
+			// Remove 'active' class from all tabs and hide all content
+			document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+			document.querySelectorAll('.tab-content').forEach(c => {
+				c.classList.remove('active');
+				c.style.display = 'none';
+			});
+			
+
+			// Add 'active' class to the clicked tab and show content
+			this.classList.add('active');
+			const contentId = this.getAttribute('data-target');
+			document.getElementById(contentId).classList.add('active');
+			const content = document.getElementById(contentId);
+			content.classList.add('active');
+			content.style.display = 'block';
+	});
 });
-
 
 // ? Add New Employees
 
@@ -75,5 +115,39 @@ document.getElementById('addEmployeeBtn').addEventListener('click', function() {
 	teamsCell.textContent = 'Product, Engineering';
 
 });
+
+// ? Pagination
+
+// 10 rows per page
+
+document.addEventListener('DOMContentLoaded', function() {
+	const rowsPerPage = 5;
+	const table = document.getElementById('employeeTable').getElementsByTagName('tbody')[0];
+	const rows = Array.from(table.getElementsByTagName('tr'));
+	const paginationControls = document.getElementById('paginationControls');
+	const totalPages = Math.ceil(rows.length / rowsPerPage);
+	
+	function displayPage(page) {
+			table.innerHTML = '';
+			const start = (page - 1) * rowsPerPage;
+			const end = start + rowsPerPage;
+			const paginatedRows = rows.slice(start, end);
+			paginatedRows.forEach(row => table.appendChild(row));
+			
+			// Update pagination controls
+			paginationControls.innerHTML = '';
+			for (let i = 1; i <= totalPages; i++) {
+					const button = document.createElement('button');
+					button.textContent = i;
+					button.className = 'pagination-button';
+					if (i === page) button.classList.add('active');
+					button.addEventListener('click', () => displayPage(i));
+					paginationControls.appendChild(button);
+			}
+	}
+	
+	displayPage(1);
+});
+
 
 

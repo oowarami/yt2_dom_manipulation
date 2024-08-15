@@ -58,7 +58,8 @@ body {
 	/* text-align: left; */
 }
 
-.sidebar nav ul li.active {
+
+.toggle-button.active {
 	background-color: #9a4c1e;
 	border: #9a4c1e solid 2px;
 	border-radius: 18px;
@@ -66,6 +67,14 @@ body {
 	gap: 10px;
 	height: 36px;
 	width: 184px;
+}
+
+.toggle-section {
+	display: none;
+}
+
+.toggle-section.active {
+	display: block;
 }
 
 /* employee content  */
@@ -86,7 +95,10 @@ header {
 	align-items: center;
 	margin-bottom: 20px;
 }
-
+.header-div {
+	display: flex;
+	flex-direction: row;
+}
 header input[type='text'] {
 	width: 60%;
 	padding: 10px;
@@ -102,7 +114,9 @@ header .btn {
 }
 
 header .btn.export {
-	background-color: #f5f5f5;
+	/* background-color: #f5f5f5; */
+	border: 1px solid #E6E7EC;
+	border-radius: 14px;
 }
 
 
@@ -126,6 +140,7 @@ header .btn.export {
 	background-color: #6a1039;
 	color: #fff;
 	padding: 10px 20px;
+	border-radius: 14px;
 }
 
 .employee-section h2 {
@@ -134,22 +149,32 @@ header .btn.export {
 	font-weight: 500;
 }
 
+/* styling the tabs */
+.tab-content {
+	padding: 20px;
+	display: none; /* Hidden by default */
+}
+
+.tab-content.active {
+	display: block;
+}
+
 .employee-section .tabs {
 	margin-bottom: 20px;
 }
 
 .employee-section .tabs .tab {
 	padding: 10px 20px;
-	border: 1px solid #ddd;
 	cursor: pointer;
-	background-color: #fff;
 	border-radius: 4px;
 	margin-right: 10px;
+	color: #667085;
 }
 
 .employee-section .tabs .tab.active {
-	background-color: #9a4c1e;
-	color: #fff;
+
+	color: #6A1039;
+	text-decoration: underline;
 }
 
 .employee-section .search-bar {
@@ -327,7 +352,7 @@ table tbody tr td .rowDeets {
 	margin-right: 5px;
 }
 
-.pagination .page.active {
+.pagination .pagination-button.active {
 	background-color: #9a4c1e;
 	color: #fff;
 }
@@ -428,8 +453,8 @@ button {
 	margin-top: 20px;
 }
 
-.hide {
+/* .hide {
 	opacity: 0;
 	max-height: 0;
 	padding: 0;
-}
+} */

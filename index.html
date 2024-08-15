@@ -27,323 +27,333 @@
 
 	<body>
 		<div class="container">
+			
 			<!-- side bar -->
 			<aside class="sidebar">
 				<div class="logo"><img src="./images/Logo.png" alt=""></div>
 				<nav>
 					<ul>
 						<li><img src="./images/sidebar/dashboard_icon.svg" alt=""><a href="#">Dashboard</a></li>
-						<li id="RolesButton"><img src="./images/sidebar/roles.svg" alt=""><a href="#">Roles</a></li>
-						<li class="active" id="employeeButton"><img src="./images/sidebar/employees.svg" alt=""><a href="#">Employees</a></li>
-						<li><a href="#"><img src="./images/sidebar/payroll.svg" alt="">Payroll</a></li>
-						<li><a href="#"><img src="./images/sidebar/reports.svg" alt="">Reports</a></li>
-						<li><a href="#"><img src="./images/sidebar/settings.svg" alt="">Settings</a></li>
+						<li class="toggle-button roles-button" id="rolesButton" data-target="main-role">
+							<img src="./images/sidebar/roles.svg" alt="">
+							<a href="#">Roles</a>
+						</li>
+						<li class="toggle-button active" id="employeeButton" data-target="main-employee">
+							<img src="./images/sidebar/employees.svg" alt="">
+							<a href="#">Employees</a>
+						</li>
+						<li><img src="./images/sidebar/payroll.svg" alt=""><a href="#">Payroll</a></li>
+						<li><img src="./images/sidebar/reports.svg" alt=""><a href="#">Reports</a></li>
+						<li><img src="./images/sidebar/settings.svg" alt=""><a href="#">Settings</a></li>
 					</ul>
 				</nav>
 			</aside>
-						
+
 			<!-- Employee main content -->
-			<main class="content" id="main-employee">
+			<main class="toggle-section content " id="main-employee">
 				<!-- header -->
 				<header>
 					<input type="text" placeholder="Search anything here">
-					<img src="./images/header/settings.svg" alt="settings icon">
-					<img src="./images/header/notifications.svg" alt="notification icon">
-					<img src="./images/header/avatar.png" alt="notification icon">
+					<div class="header-div">
+						<img src="./images/header/settings.svg" alt="settings icon">
+						<img src="./images/header/notifications.svg" alt="notification icon">
+						<img src="./images/header/avatar.png" alt="notification icon">
+					</div>
 				</header>
 				<section class="employee-section" id="our-employees">
 					<div class="employee-header">
 						<h2>Employees <span>(100)</span></h2>
 						<div class="btn-group">
 							<button class="btn export"> <img src="./images/employees/export.svg" alt="export icon">Export</button>
-							<button class="btn new-employee" id="addEmployeeBtn"> <img src="./images/employees/new_employee.svg" alt="add icon">New
+							<button class="btn new-employee" id="addEmployeeBtn"> <img src="./images/employees/new_employee.svg"
+									alt="add icon">New
 								Employee</button>
 						</div>
 					</div>
 					<div class="tabs">
-						<span class="tab active">All Employees</span>
-						<span class="tab">Teams</span>
-						<span class="tab">Roles</span>
+						<span class="tab active" data-target="content1" id="tab-employees">All Employees</span>
+						<span class="tab" data-target="content2" id="tab-teams">Teams</span>
+						<span class="tab" data-target="content3" id="tab-roles">Roles</span>
 					</div>
 					<div class="search-bar">
 						<input type="text" id="employeeSearch" placeholder="Search Employee by name, role, ID...">
 						<button class="btn filter">Filter</button>
 						<button class="btn layout">Layout</button>
 					</div>
-					<table id="employeeTable">
-						<thead>
-							<tr>
-								<th><input type="checkbox" id="myCheck" onclick="onCheck()"></input>Name</th>
-								<th>Employee ID</th>
-								<th>Role</th>
-								<th>Status</th>
-								<th>Teams</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr class="employee-row">
-								<!-- row 1 -->
-								<td class="tdName">
-									<input type="checkbox" id="myCheck" onclick="onCheck()"></input>
-									<img src="./images/employees/Avatar1.png" alt="">
-									<div class="rowDeets">
-										<span class="employee-name">Tanner Finsha</span>
-										<span class="employee-email">@Tannerfisher@gmail.com</span>
-									</div>
-								</td>
-								<td>
-									<div class="employee-id">
-										#23456GH6JYT6
-									</div>
-								</td>
-								<td>
-									<div class="tdRole">
-										<span class="employee-role">Product Designer</span>
-										<span class="employee-work-status">Full time</span>
-									</div>
-								</td>
-								<td><span class="status active">Active</span></td>
-								<td>
-									<div class="tdTeams">
-										<span class="tdOthers">Marketing</span>
-										<span class="tdDesign">Design</span>
-										<span class="tdNum">+1</span>
-									</div>
-								</td>
-							</tr>
-							<!-- row 2 -->
-							<tr class="employee-row">
-								<td class="tdName">
-									<input type="checkbox" id="myCheck" onclick="onCheck()"></input>
-									<img src="./images/employees/Avatar2.png" alt="">
-									<div class="rowDeets">
-										<span class="employee-name">Emeto Winner</span>
-										<span class="employee-email">Emetowinner@gmail.com</span>
-									</div>
-								</td>
-								<td>
-									<div class="employee-id">
-										#23456GH6JYT6
-									</div>
-								</td>
-								<td>
-									<div class="tdRole">
-										<span class="employee-role">Product Designer</span>
-										<span class="employee-work-status">Contract</span>
-									</div>
-								</td>
-								<td><span class="status active">Active</span></td>
-								<td>
-									<div class="tdTeams">
-										<span class="tdOthers">Product</span>
-										<span class="tdDesign">Design</span>
-										<span class="tdNum">+1</span>
-									</div>
-								</td>
-							</tr>
-							<!-- row 3 -->
-							<tr class="employee-row">
-								<td class="tdName">
-									<input type="checkbox" id="myCheck" onclick="onCheck()"></input>
-									<img src="./images/employees/Avatar1.png" alt="">
-									<div class="rowDeets">
-										<span class="employee-name">Tassy Omah</span>
-										<span class="employee-email">Tassyomah@gmail.com</span>
-									</div>
-								</td>
-								<td>
-									<div class="employee-id">
-										#23456GH6JYT6
-									</div>
-								</td>
-								<td>
-									<div class="tdRole">
-										<span class="employee-role">Product Designer</span>
-										<span class="employee-work-status">Full time</span>
-									</div>
-								</td>
-								<td><span class="status inactive">Inactive</span></td>
-								<td>
-									<div class="tdTeams">
-										<span class="tdOthers">Product</span>
-									</div>
-								</td>
-							</tr>
-							<!-- row 4 -->
-							<tr class="employee-row">
-								<td class="tdName">
-									<input type="checkbox" id="myCheck" onclick="onCheck()"></input>
-									<img src="./images/employees/Avatar3.png" alt="">
-									<div class="rowDeets">
-										<span class="employee-name">James Muriel</span>
-										<span class="employee-email">JamesMuriel@Aerten.finance</span>
-									</div>
-								</td>
-								<td>
-									<div class="employee-id">
-										#23456GH6JYT6
-									</div>
-								</td>
-								<td>
-									<div class="tdRole">
-										<span class="employee-role">Product Designer</span>
-										<span class="employee-work-status">Associate</span>
-									</div>
-								</td>
-								<td><span class="status inactive">Inactive</span></td>
-								<td>
-									<div class="tdTeams">
-										<span class="tdOthers">Engineering</span>
-										<span class="tdDesign">Design</span>
-									</div>
-								</td>
-							</tr>
-							<!-- row 5 -->
-							<tr class="employee-row">
-								<td class="tdName">
-									<input type="checkbox" id="myCheck" onclick="onCheck()"></input>
-									<img src="./images/employees/Avatar2.png" alt="">
-									<div class="rowDeets">
-										<span class="employee-name">Emeto Winner</span>
-										<span class="employee-email">Emetowinner@gmail.com</span>
-									</div>
-								</td>
-								<td>
-									<div class="employee-id">
-										#23456GH6JYT6
-									</div>
-								</td>
-								<td>
-									<div class="tdRole">
-										<span class="employee-role">Frontend Engineer</span>
-										<span class="employee-work-status">Full time</span>
-									</div>
-								</td>
-								<td><span class="status inactive">Inactive</span></td>
-								<td>
-									<div class="tdTeams">
-										<span class="tdOthers">Product</span>
-										<span class="tdDesign">Design</span>
-										<span class="tdNum">+3</span>
-									</div>
-								</td>
-							</tr>
-							<!-- row 6 -->
-							<tr class="employee-row">
-								<td class="tdName">
-									<input type="checkbox" id="myCheck" onclick="onCheck()"></input>
-									<img src="./images/employees/Avatar4.png" alt="">
-									<div class="rowDeets">
-										<span class="employee-name">Tassy Omah</span>
-										<span class="employee-email">Tassyomah@gmail.com</span>
-									</div>
-								</td>
-								<td>
-									<div class="employee-id">
-										#23456GH6JYT6
-									</div>
-								</td>
-								<td>
-									<div class="tdRole">
-										<span class="employee-role">Backend Engineer</span>
-										<span class="employee-work-status">Part time</span>
-									</div>
-								</td>
-								<td><span class="status active">Active</span></td>
-								<td>
-									<div class="tdTeams">
-										<span class="tdOthers">Engineering</span>
-										<span class="tdDesign">Design</span>
-									</div>
-								</td>
-							</tr>
-							<!-- row 7 -->
-							<tr class="employee-row">
-								<td class="tdName">
-									<input type="checkbox" id="myCheck" onclick="onCheck()"></input>
-									<img src="./images/employees/Avatar3.png" alt="">
-									<div class="rowDeets">
-										<span class="employee-name">James Muriel</span>
-										<span class="employee-email">JamesMuriel@Aerten.finance</span>
-									</div>
-								</td>
-								<td>
-									<div class="employee-id">
-										#23456GH6JYT6
-									</div>
-								</td>
-								<td>
-									<div class="tdRole">
-										<span class="employee-role">Backend Engineer</span>
-										<span class="employee-work-status">Part time</span>
-									</div>
-								</td>
-								<td><span class="status active">Active</span></td>
-								<td>
-									<div class="tdTeams">
-										<span class="tdOthers">Product</span>
-										<span class="tdDesign">Design</span>
-										<span class="tdNum">+6</span>
-									</div>
-								</td>
-							</tr>
-							<!-- row 8 -->
-							<tr class="employee-row">
-								<td class="tdName">
-									<input type="checkbox" id="myCheck" onclick="onCheck()"></input>
-									<img src="./images/employees/Avatar2.png" alt="">
-									<div class="rowDeets">
-										<span class="employee-name">Emeto Winner</span>
-										<span class="employee-email">Emetowinner@gmail.com</span>
-									</div>
-								</td>
-								<td>
-									<div class="employee-id">
-										#23456GH6JYT6
-									</div>
-								</td>
-								<td>
-									<div class="tdRole">
-										<span class="employee-role">Sales specialist</span>
-										<span class="employee-work-status">Part time</span>
-									</div>
-								</td>
-								<td><span class="status inactive">Inactive</span></td>
-								<td>
-									<div class="tdTeams">
-										<span class="tdOthers">Product</span>
-										<span class="tdDesign">Design</span>
-										<span class="tdNum">+4</span>
-									</div>
-								</td>
-							</tr>
+					<div class="tab-content" id="content1">
+						<table id="employeeTable">
+							<thead>
+								<tr>
+									<th><input type="checkbox" id="myCheck" onclick="onCheck()"></input>Name</th>
+									<th>Employee ID</th>
+									<th>Role</th>
+									<th>Status</th>
+									<th>Teams</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="employee-row">
+									<!-- row 1 -->
+									<td class="tdName">
+										<input type="checkbox" id="myCheck" onclick="onCheck()"></input>
+										<img src="./images/employees/Avatar1.png" alt="">
+										<div class="rowDeets">
+											<span class="employee-name">Tanner Finsha</span>
+											<span class="employee-email">@Tannerfisher@gmail.com</span>
+										</div>
+									</td>
+									<td>
+										<div class="employee-id">
+											#23456GH6JYT6
+										</div>
+									</td>
+									<td>
+										<div class="tdRole">
+											<span class="employee-role">Product Designer</span>
+											<span class="employee-work-status">Full time</span>
+										</div>
+									</td>
+									<td><span class="status active">Active</span></td>
+									<td>
+										<div class="tdTeams">
+											<span class="tdOthers">Marketing</span>
+											<span class="tdDesign">Design</span>
+											<span class="tdNum">+1</span>
+										</div>
+									</td>
+								</tr>
+								<!-- row 2 -->
+								<tr class="employee-row">
+									<td class="tdName">
+										<input type="checkbox" id="myCheck" onclick="onCheck()"></input>
+										<img src="./images/employees/Avatar2.png" alt="">
+										<div class="rowDeets">
+											<span class="employee-name">Emeto Winner</span>
+											<span class="employee-email">Emetowinner@gmail.com</span>
+										</div>
+									</td>
+									<td>
+										<div class="employee-id">
+											#23456GH6JYT6
+										</div>
+									</td>
+									<td>
+										<div class="tdRole">
+											<span class="employee-role">Product Designer</span>
+											<span class="employee-work-status">Contract</span>
+										</div>
+									</td>
+									<td><span class="status active">Active</span></td>
+									<td>
+										<div class="tdTeams">
+											<span class="tdOthers">Product</span>
+											<span class="tdDesign">Design</span>
+											<span class="tdNum">+1</span>
+										</div>
+									</td>
+								</tr>
+								<!-- row 3 -->
+								<tr class="employee-row">
+									<td class="tdName">
+										<input type="checkbox" id="myCheck" onclick="onCheck()"></input>
+										<img src="./images/employees/Avatar1.png" alt="">
+										<div class="rowDeets">
+											<span class="employee-name">Tassy Omah</span>
+											<span class="employee-email">Tassyomah@gmail.com</span>
+										</div>
+									</td>
+									<td>
+										<div class="employee-id">
+											#23456GH6JYT6
+										</div>
+									</td>
+									<td>
+										<div class="tdRole">
+											<span class="employee-role">Product Designer</span>
+											<span class="employee-work-status">Full time</span>
+										</div>
+									</td>
+									<td><span class="status inactive">Inactive</span></td>
+									<td>
+										<div class="tdTeams">
+											<span class="tdOthers">Product</span>
+										</div>
+									</td>
+								</tr>
+								<!-- row 4 -->
+								<tr class="employee-row">
+									<td class="tdName">
+										<input type="checkbox" id="myCheck" onclick="onCheck()"></input>
+										<img src="./images/employees/Avatar3.png" alt="">
+										<div class="rowDeets">
+											<span class="employee-name">James Muriel</span>
+											<span class="employee-email">JamesMuriel@Aerten.finance</span>
+										</div>
+									</td>
+									<td>
+										<div class="employee-id">
+											#23456GH6JYT6
+										</div>
+									</td>
+									<td>
+										<div class="tdRole">
+											<span class="employee-role">Product Designer</span>
+											<span class="employee-work-status">Associate</span>
+										</div>
+									</td>
+									<td><span class="status inactive">Inactive</span></td>
+									<td>
+										<div class="tdTeams">
+											<span class="tdOthers">Engineering</span>
+											<span class="tdDesign">Design</span>
+										</div>
+									</td>
+								</tr>
+								<!-- row 5 -->
+								<tr class="employee-row">
+									<td class="tdName">
+										<input type="checkbox" id="myCheck" onclick="onCheck()"></input>
+										<img src="./images/employees/Avatar2.png" alt="">
+										<div class="rowDeets">
+											<span class="employee-name">Emeto Winner</span>
+											<span class="employee-email">Emetowinner@gmail.com</span>
+										</div>
+									</td>
+									<td>
+										<div class="employee-id">
+											#23456GH6JYT6
+										</div>
+									</td>
+									<td>
+										<div class="tdRole">
+											<span class="employee-role">Frontend Engineer</span>
+											<span class="employee-work-status">Full time</span>
+										</div>
+									</td>
+									<td><span class="status inactive">Inactive</span></td>
+									<td>
+										<div class="tdTeams">
+											<span class="tdOthers">Product</span>
+											<span class="tdDesign">Design</span>
+											<span class="tdNum">+3</span>
+										</div>
+									</td>
+								</tr>
+								<!-- row 6 -->
+								<tr class="employee-row">
+									<td class="tdName">
+										<input type="checkbox" id="myCheck" onclick="onCheck()"></input>
+										<img src="./images/employees/Avatar4.png" alt="">
+										<div class="rowDeets">
+											<span class="employee-name">Tassy Omah</span>
+											<span class="employee-email">Tassyomah@gmail.com</span>
+										</div>
+									</td>
+									<td>
+										<div class="employee-id">
+											#23456GH6JYT6
+										</div>
+									</td>
+									<td>
+										<div class="tdRole">
+											<span class="employee-role">Backend Engineer</span>
+											<span class="employee-work-status">Part time</span>
+										</div>
+									</td>
+									<td><span class="status active">Active</span></td>
+									<td>
+										<div class="tdTeams">
+											<span class="tdOthers">Engineering</span>
+											<span class="tdDesign">Design</span>
+										</div>
+									</td>
+								</tr>
+								<!-- row 7 -->
+								<tr class="employee-row">
+									<td class="tdName">
+										<input type="checkbox" id="myCheck" onclick="onCheck()"></input>
+										<img src="./images/employees/Avatar3.png" alt="">
+										<div class="rowDeets">
+											<span class="employee-name">James Muriel</span>
+											<span class="employee-email">JamesMuriel@Aerten.finance</span>
+										</div>
+									</td>
+									<td>
+										<div class="employee-id">
+											#23456GH6JYT6
+										</div>
+									</td>
+									<td>
+										<div class="tdRole">
+											<span class="employee-role">Backend Engineer</span>
+											<span class="employee-work-status">Part time</span>
+										</div>
+									</td>
+									<td><span class="status active">Active</span></td>
+									<td>
+										<div class="tdTeams">
+											<span class="tdOthers">Product</span>
+											<span class="tdDesign">Design</span>
+											<span class="tdNum">+6</span>
+										</div>
+									</td>
+								</tr>
+								<!-- row 8 -->
+								<tr class="employee-row">
+									<td class="tdName">
+										<input type="checkbox" id="myCheck" onclick="onCheck()"></input>
+										<img src="./images/employees/Avatar2.png" alt="">
+										<div class="rowDeets">
+											<span class="employee-name">Emeto Winner</span>
+											<span class="employee-email">Emetowinner@gmail.com</span>
+										</div>
+									</td>
+									<td>
+										<div class="employee-id">
+											#23456GH6JYT6
+										</div>
+									</td>
+									<td>
+										<div class="tdRole">
+											<span class="employee-role">Sales specialist</span>
+											<span class="employee-work-status">Part time</span>
+										</div>
+									</td>
+									<td><span class="status inactive">Inactive</span></td>
+									<td>
+										<div class="tdTeams">
+											<span class="tdOthers">Product</span>
+											<span class="tdDesign">Design</span>
+											<span class="tdNum">+4</span>
+										</div>
+									</td>
+								</tr>
 
-						</tbody>
-					</table>
-					<div class="pagination">
-						<button class="btn prev">Previous</button>
-						<div class="page-numbers">
-							<button class="page active">1</button>
-							<button class="page">2</button>
-							<button class="page">3</button>
-							<button class="page">...</button>
-							<button class="page">8</button>
-							<button class="page">9</button>
-							<button class="page">10</button>
-							<!-- More page numbers -->
+							</tbody>
+						</table>
+						<div class="pagination">
+							<button class="btn prev">Previous</button>
+							<div class="page-numbers" id="paginationControls">
+								<!-- <button class="page active">1</button> -->
+							</div>
+							<button class="btn next">Next</button>
 						</div>
-						<button class="btn next">Next</button>
 					</div>
+					<div class="tab-content" id="content2">Content for Tab 2</div>
+					<div class="tab-content" id="content3">Content for Tab 3</div>
+
 				</section>
 			</main>
 
 			<!--Role Main Content -->
-			<main class="role hide" id="main-role">
+			<main class="toggle-section role hide" id="main-role">
 				<header>
 					<input type="text" placeholder="Search anything here">
-					<img src="./images/header/settings.svg" alt="settings icon">
-					<img src="./images/header/notifications.svg" alt="notification icon">
-					<img src="./images/header/avatar.png" alt="notification icon">
+					<div class="header-div">
+						<img src="./images/header/settings.svg" alt="settings icon">
+						<img src="./images/header/notifications.svg" alt="notification icon">
+						<img src="./images/header/avatar.png" alt="notification icon">
+					</div>
 				</header>
 
 				<header>
@@ -371,7 +381,10 @@
 					<!-- card 1 -->
 					<div class="role-card">
 						<h3>Solution Sales Specialist</h3>
-						<p>Responsible for driving revenue growth by identifying and pursuing new business opportunities, as well as maintaining relationships with existing clients. working closely with customers to understand their needs and provide solutions that meet or exceed their expectations, while also achieving the company's sales goals.</p>
+						<p>Responsible for driving revenue growth by identifying and pursuing new business opportunities, as well as
+							maintaining relationships with existing clients. working closely with customers to understand their needs
+							and provide solutions that meet or exceed their expectations, while also achieving the company's sales
+							goals.</p>
 						<div class="tags">
 							<span>Marketing</span>
 							<span>Product</span>
@@ -386,7 +399,10 @@
 					<!-- card 2 -->
 					<div class="role-card">
 						<h3>Solution Sales Specialist</h3>
-						<p>pie Responsible for driving revenue growth by identifying and pursuing new business opportunities, as well as maintaining relationships with existing clients. working closely with customers to understand their needs and provide solutions that meet or exceed their expectations, while also achieving the company's sales goals.</p>
+						<p>pie Responsible for driving revenue growth by identifying and pursuing new business opportunities, as
+							well as maintaining relationships with existing clients. working closely with customers to understand
+							their needs and provide solutions that meet or exceed their expectations, while also achieving the
+							company's sales goals.</p>
 						<div class="tags">
 							<span class="tdOthers">Marketing</span>
 							<span class="tdOthers">Product</span>
@@ -401,7 +417,10 @@
 					<!-- card 3 -->
 					<div class="role-card">
 						<h3>Solution Sales Specialist</h3>
-						<p>Responsible for driving revenue growth by identifying and pursuing new business opportunities, as well as maintaining relationships with existing clients. working closely with customers to understand their needs and provide solutions that meet or exceed their expectations, while also achieving the company's sales goals.</p>
+						<p>Responsible for driving revenue growth by identifying and pursuing new business opportunities, as well as
+							maintaining relationships with existing clients. working closely with customers to understand their needs
+							and provide solutions that meet or exceed their expectations, while also achieving the company's sales
+							goals.</p>
 						<div class="tags">
 							<span>Marketing</span>
 							<span>Product</span>
@@ -416,7 +435,10 @@
 					<!-- card 4 -->
 					<div class="role-card">
 						<h3>Solution Sales Specialist</h3>
-						<p>Responsible for driving revenue growth by identifying and pursuing new business opportunities, as well as maintaining relationships with existing clients. working closely with customers to understand their needs and provide solutions that meet or exceed their expectations, while also achieving the company's sales goals.</p>
+						<p>Responsible for driving revenue growth by identifying and pursuing new business opportunities, as well as
+							maintaining relationships with existing clients. working closely with customers to understand their needs
+							and provide solutions that meet or exceed their expectations, while also achieving the company's sales
+							goals.</p>
 						<div class="tags">
 							<span>Marketing</span>
 							<span>Product</span>
