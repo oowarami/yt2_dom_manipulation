@@ -1,3 +1,5 @@
+// ! EMPLOYEES
+
 // ? Activate search
 
 // Employee search
@@ -19,22 +21,6 @@ document.getElementById('employeeSearch').addEventListener('input', function() {
 	});
 });
 
-// Role search
-document.getElementById('roleSearch').addEventListener('input', function() {
-	const searchTerm = this.value.toLowerCase();
-	const roles = document.querySelectorAll('.role-card');
-
-	roles.forEach(role => {
-			const title = role.querySelector('h3').textContent.toLowerCase();
-			const description = role.querySelector('p').textContent.toLowerCase();
-
-			if (title.includes(searchTerm) || description.includes(searchTerm)) {
-					role.style.display = 'flex'; // Show the card
-			} else {
-					role.style.display = 'none'; // Hide the card
-			}
-	});
-});
 
 // ? Show and hide sidebar sections on click of button
 
@@ -64,7 +50,7 @@ document.querySelectorAll('.toggle-button').forEach( button =>{
 	});
 });
 
-// ? Show and hide tabs
+// ? Show and hide tabs 
 
 document.querySelectorAll('.tab').forEach(tab => {
 	const defaultTab = document.querySelector('.tab.active');
@@ -82,7 +68,6 @@ document.querySelectorAll('.tab').forEach(tab => {
 				c.style.display = 'none';
 			});
 			
-
 			// Add 'active' class to the clicked tab and show content
 			this.classList.add('active');
 			const contentId = this.getAttribute('data-target');
@@ -107,7 +92,6 @@ document.getElementById('addEmployeeBtn').addEventListener('click', function() {
 	const statusCell = newRow.insertCell(3);
 	const teamsCell = newRow.insertCell(4);
 
-
 	nameEmailCell.innerHTML = '<strong>John Doe </strong><br><span>John.employee@example.com</span>';
 	idCell.textContent = '#654321ABCD';
 	roleCell.textContent = 'Backend Engineer';
@@ -118,7 +102,7 @@ document.getElementById('addEmployeeBtn').addEventListener('click', function() {
 
 // ? Pagination
 
-// 10 rows per page
+// 5 rows per page
 
 document.addEventListener('DOMContentLoaded', function() {
 	const rowsPerPage = 5;
@@ -150,4 +134,67 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+// ! ROLES
 
+// ? Activate search
+
+// Role search
+document.getElementById('roleSearch').addEventListener('input', function() {
+	const searchTerm = this.value.toLowerCase();
+	const roles = document.querySelectorAll('.role-card');
+
+	roles.forEach(role => {
+			const title = role.querySelector('h3').textContent.toLowerCase();
+			const description = role.querySelector('p').textContent.toLowerCase();
+
+			if (title.includes(searchTerm) || description.includes(searchTerm)) {
+					role.style.display = 'flex'; // Show the card
+			} else {
+					role.style.display = 'none'; // Hide the card
+			}
+	});
+});
+
+// Grid and line view
+
+document.getElementById('gridViewBtn').addEventListener('click', function() {
+	const rolesSection = document.getElementById('contentA');
+	rolesSection.classList.remove('line-view');
+	rolesSection.classList.add('grid-view');
+});
+
+document.getElementById('lineViewBtn').addEventListener('click', function() {
+	const rolesSection = document.getElementById('contentA');
+	rolesSection.classList.remove('grid-view');
+	rolesSection.classList.add('line-view');
+});
+
+// // Modal pop up
+document.querySelector('.assign-role-btn').addEventListener('click', function() {
+
+	
+	document.querySelector('.modal-background').style.display = 'block';
+	document.querySelector('.modal').style.display = 'block';
+});
+
+// Modal close
+document.querySelector('.close-btn').addEventListener('click', function() {
+	document.querySelector('.modal-background').style.display = 'none';
+	document.querySelector('.modal').style.display = 'none';
+});
+
+
+document.querySelectorAll('.employee input').forEach(item => {
+	item.addEventListener('click', event => {
+		// Clear previous selection
+		document.querySelectorAll('.employee input').forEach(div => div.classList.remove('selected'));
+
+		// Add the 'selected' class to the clicked employee
+		event.target.classList.add('selected');
+	});
+});
+
+
+
+// // Example usage: Show modal on some event
+// document.getElementById('assign-button').addEventListener('click', showModal);

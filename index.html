@@ -357,10 +357,12 @@
 				</header>
 
 				<header>
-					<h2>Roles <span>(123)</span></h2>
+					<h2>Roles <span>123</span></h2>
 					<div class="button-group">
-						<button class="btn assign">Assign</button>
-						<button class="btn new-role">New Role</button>
+						<button class="btn assign"><img src="./images/employees/new_employee.svg"
+							alt="add icon">Assign</button>
+						<button class="btn new-role assign-role-btn"><img src="./images/employees/new_employee.svg"
+							alt="add icon">New Role</button>
 					</div>
 				</header>
 
@@ -368,16 +370,17 @@
 					<input type="text" id="roleSearch" placeholder="Search Roles by Title, Teams or any related keywords">
 					<div class="filters">
 						<button>Filter</button>
-						<button>View</button>
+						<button id="lineViewBtn"><img src="./images/roles/line.svg" alt="line button"></button>
+						<button id="gridViewBtn"><img src="./images/roles/grid.svg" alt="grid button"></button>
 					</div>
 				</section>
 
-				<nav class="tabs">
-					<button class="active">All roles</button>
-					<button>Permissions</button>
-				</nav>
+				<div class="tabs">
+					<span class="tab active" data-target="contentA">All roles</span>
+					<span class="tab" data-target="contentB">Permissions</span>
+				</div>
 
-				<section class="role-cards">
+				<div class="grid-view role-cards tab-content" id="contentA">
 					<!-- card 1 -->
 					<div class="role-card">
 						<h3>Solution Sales Specialist</h3>
@@ -450,8 +453,69 @@
 							<span>Manager</span>
 						</div>
 					</div>
-				</section>
+				</div>
+				<div class="tab-content " id="contentB">Permissions content</div>
 			</main>
+
+			<!-- Modal -->
+			<div class="modal-background"></div>
+			<div class="modal" id="modal">
+    	<div class="modal-content">
+        <button class="close-btn">&times;</button>
+        <h2>Assign this role</h2>
+        <p class="modal-p">Select one or multiple employees to assign to this role <strong class="senior-design">"Senior Design Lead"</strong></p>
+        <input type="text" placeholder="Search for an individual or team" class="search-bar" />
+        <div class="employee-list">
+						<!-- employee 1 -->
+            <div class="employee">
+                <img src="./images/employees/Jennifer lopez.png" alt="Jennifer Lopez">
+                <div class="employee-details">
+                    <p>Jennifer Lopez</p>
+                    <span>Product Designer, Integrations</span>
+                </div>
+                <input type="radio" name="employee" checked>
+            </div>
+						<!-- employee 2 -->
+            <div class="employee">
+                <img src="./images/employees/Tassy.png" alt="Tassy Omah">
+                <div class="employee-details">
+                    <p>Tassy Omah</p>
+                    <span>Developer Relations, Payments</span>
+                </div>
+                <input type="radio" name="employee" checked>
+            </div>
+						<!-- employee 3 -->
+            <div class="employee">
+                <img src="./images/employees/Emeto.png" alt="Emeto Winner">
+                <div class="employee-details">
+                    <p>Emeto Winner</p>
+                    <span>Backend Developer, Payments</span>
+                </div>
+                <input type="radio" name="employee" checked>
+            </div>
+						<!-- employee 4 -->
+            <div class="employee">
+                <img src="./images/employees/Jane.png" alt="Jane mena">
+                <div class="employee-details">
+                    <p>Jane mena</p>
+                    <span>Technical specialist, Enterprise</span>
+                </div>
+                <input type="radio" name="employee" checked>
+            </div>
+						<!-- employee 5 -->
+            <div class="employee">
+                <img src="./images/employees/Kate.png" alt="Jennifer Lopez">
+                <div class="employee-details">
+                    <p>Kate Magnamay</p>
+                    <span>Product Manger, Dashboard</span>
+                </div>
+                <input type="radio" name="employee" checked>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 		</div>
 		<script src="./js/index.js"></script>
 	</body>
